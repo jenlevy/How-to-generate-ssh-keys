@@ -1,44 +1,44 @@
 # How-to-generate-ssh-keys
 How to generate ssh keys for your github account on newer Macs! Also how to generate and store multiple ssh keys for multiple github accounts :D
 
-# Generate SSH key 
-email should be the email of ur github
+**Generate SSH key**
+email should be the email of ur github  
 ssh-keygen -t ed25519 -C "whatever_your_email_is@email.com"
 
-# Start the SSH agent
+**Start the SSH agent**
 eval "$(ssh-agent -s)"
 
-# Add the SSH private key to your agent and macOS keychain
+**Add the SSH private key to your agent and macOS keychain**
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 
-# Copy the public key to your clipboard
+**Copy the public key to your clipboard**
 pbcopy < ~/.ssh/id_ed25519.pub
 
-# Go to GitHub → Settings → SSH and GPG keys → New SSH key
-# Paste and save your key
+ **Go to GitHub → Settings → SSH and GPG keys → New SSH key**  
+Paste and save your key
 
-# Test the connection
+**Test the connection**
 ssh -T git@github.com
 
 
-# === Add a Second GitHub Account Using SSH Alias ===
+## Add a Second GitHub Account Using SSH Alias ##
 
-# Generate a second SSH key
-ssh-keygen -t ed25519 -C "yourotheremail@example.com" -f ~/.ssh/id_ed25519_alias
+**Generate a second SSH key**
+ssh-keygen -t ed25519 -C "yourotheremail@example.com" -f ~/.ssh/id_ed25519_alias  
 (choose whatever name for the alias u want!)
 
-# Add the new key to the SSH agent
+**Add the new key to the SSH agent**
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519_alias
 
-# Copy the new public key to your clipboard
+**Copy the new public key to your clipboard**
 pbcopy < ~/.ssh/id_ed25519_alias.pub
 
-# Add it to your second GitHub account (Settings → SSH and GPG Keys → New SSH Key)
+**Add it to your second GitHub account (Settings → SSH and GPG Keys → New SSH Key)**  
 
-# Edit SSH config
+**Edit SSH config**
 nano ~/.ssh/config
 
-# Paste the following:
+**Paste the following:**
 # Personal GitHub
 Host github.com-personal
   HostName github.com
@@ -47,7 +47,7 @@ Host github.com-personal
   UseKeychain yes
   AddKeysToAgent yes
 
-# Work GitHub
+**Other GitHub**
 Host github.com-other
   HostName github.com
   User git
@@ -55,8 +55,8 @@ Host github.com-other
   UseKeychain yes
   AddKeysToAgent yes
 
-# Clone repos using aliases
-# Personal:
+**Clone repos using aliases**
+Personal:  
 git clone git@github.com-personal:yourusername/repo.git
-# Work:
+Work:  
 git clone git@github.com-alias:yourworkusername/repo.git
