@@ -36,9 +36,9 @@ pbcopy < ~/.ssh/id_ed25519_alias.pub
 **Add it to your second GitHub account (Settings → SSH and GPG Keys → New SSH Key)**  
 
 **Edit SSH config**  
-nano ~/.ssh/config
+open ~/.ssh/config
 
-**Paste the following:**  
+**Paste the following and save into your config:**  
 ```
 Personal GitHub  
     Host github.com-personal
