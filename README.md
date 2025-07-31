@@ -39,21 +39,21 @@ pbcopy < ~/.ssh/id_ed25519_alias.pub
 nano ~/.ssh/config
 
 **Paste the following:**  
-# Personal GitHub
-Host github.com-personal
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/id_ed25519
-  UseKeychain yes
-  AddKeysToAgent yes  
+*Personal GitHub  
+    * Host github.com-personal
+    * HostName github.com
+    * User git
+    * IdentityFile ~/.ssh/id_ed25519
+    * UseKeychain yes
+    *AddKeysToAgent yes  
 
-**Other GitHub**  
-Host github.com-other
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/id_ed25519_alias
-  UseKeychain yes
-  AddKeysToAgent yes  
+Other GitHub    
+*Host github.com-other
+  *HostName github.com
+  *User git
+  *IdentityFile ~/.ssh/id_ed25519_alias
+  *UseKeychain yes
+  *AddKeysToAgent yes  
 
 **Clone repos using aliases**  
 Personal:  
